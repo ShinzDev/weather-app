@@ -1,30 +1,22 @@
-
-// import './App.css'
-// export default function App() {
-//   return (
-//     <div className="flex items-center justify-center h-screen bg-blue-400 big-container">
-//       <h1 className="text-4xl font-bold">Hello, Weather App!</h1>
-//     </div>
-//   );
-// }
-
-
-
 import React, { useState } from "react";
 import axios from "axios";
+
+
 
 export default function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
 
   const fetchWeather = async () => {
-    const apiKey = "2c8593c23847dce5c04efdc914e8e722"; // Replace with your OpenWeatherMap API key
+    const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+ // Use your actual API key here
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     try {
       const response = await axios.get(url);
       setWeather(response.data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
+      alert("Could not fetch weather data. Please try again.");
     }
   };
 

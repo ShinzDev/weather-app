@@ -1,4 +1,7 @@
-.big-container{
-  background-image: url(../src/assets/react.svg);
-  
+ h2{
+    font-size: 200px;
+    transition: all 5s;
+}
+p{
+  text-align: center;
 }
